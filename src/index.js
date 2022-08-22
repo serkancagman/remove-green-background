@@ -11,10 +11,14 @@ export const TransparentCanvas = ({
   onMouse,
   leaveMouse,
   onTouch,
-  className
+  className,
+  autoPlay,
+  videoSrc,
+  loop,
+  originalVideo
 }) => {
   const canvasRef = React.createRef(null)
-
+  const videoRef = React.createRef(null)
   React.useEffect(() => {
     if (canvasRef.current && elementRef.current && elementRef) {
       const interval = setInterval(() => {
@@ -48,14 +52,23 @@ export const TransparentCanvas = ({
   })
 
   return (
-    <canvas
-      onMouseOver={onMouse ? onMouse : null}
-      onMouseOut={leaveMouse ? onMouse : null}
-      onClick={onTouch ? onTouch : null}
-      ref={canvasRef}
-      width={width}
-      height={height}
-      className={className ? className : ''}
-    />
+    <>
+      <video
+        autoPlay={autoPlay}
+        style={{ display: originalVideo ? originalVideo : 'none' }}
+        loop={loop}
+        ref={videoRef}
+        src={videoSrc}
+      />
+      <canvas
+        onMouseOver={onMouse || null}
+        onMouseOut={leaveMouse || null}
+        onClick={onTouch || null}
+        ref={canvasRef}
+        width={width}
+        height={height}
+        className={className || ''}
+      />
+    </>
   )
 }
