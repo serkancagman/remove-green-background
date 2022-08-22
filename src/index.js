@@ -49,12 +49,8 @@ export const TransparentCanvas = ({
 
   return (
     <canvas
-      onMouseOver={
-        onMouse ? elementRef.current && elementRef.current.pause() : null
-      }
-      onMouseOut={
-        leaveMouse ? elementRef.current && elementRef.current.play() : null
-      }
+      onMouseOver={onMouse ? onMouse : null}
+      onMouseOut={leaveMouse ? onMouse : null}
       onClick={onTouch ? onTouch : null}
       ref={canvasRef}
       width={width}
