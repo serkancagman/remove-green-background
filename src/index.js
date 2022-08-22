@@ -1,13 +1,17 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-export const ExampleComponent = ({
+export const TransparentCanvas = ({
   elementRef,
   rColor,
   gColor,
   bColor,
   width,
-  height
+  height,
+  onMouse,
+  leaveMouse,
+  onTouch,
+  className
 }) => {
   const canvasRef = React.createRef(null)
 
@@ -45,11 +49,17 @@ export const ExampleComponent = ({
 
   return (
     <canvas
-      onMouseOver={() => elementRef.current && elementRef.current.pause()}
-      onMouseOut={() => elementRef.current && elementRef.current.play()}
+      onMouseOver={
+        onMouse ? elementRef.current && elementRef.current.pause() : null
+      }
+      onMouseOut={
+        leaveMouse ? elementRef.current && elementRef.current.play() : null
+      }
+      onClick={onTouch ? onTouch : null}
       ref={canvasRef}
       width={width}
       height={height}
+      className={className ? className : ''}
     />
   )
 }
