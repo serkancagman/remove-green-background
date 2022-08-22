@@ -69,7 +69,11 @@ export const TransparentCanvas = ({
               }
             : null
         }
-        onMouseOut={onLeavePlay ? () => videoRef?.current?.play() : null}
+        onMouseOut={
+          onLeavePlay
+            ? () => videoRef?.current && videoRef?.current?.play()
+            : null
+        }
         onClick={onTouch || null}
         ref={canvasRef}
         width={width}
