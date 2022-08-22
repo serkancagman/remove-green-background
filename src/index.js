@@ -14,7 +14,8 @@ export const TransparentCanvas = ({
   autoPlay,
   videoSrc,
   loop,
-  originalVideo
+  originalVideo,
+  onHoverPause
 }) => {
   const canvasRef = React.createRef(null)
   const videoRef = React.createRef(null)
@@ -60,7 +61,13 @@ export const TransparentCanvas = ({
         src={videoSrc}
       />
       <canvas
-        onMouseOver={onMouse || null}
+        onMouseOver={
+          onHoverPause
+            ? () => {
+                videoRef?.current && videoRef.current.pause()
+              }
+            : null
+        }
         onMouseOut={leaveMouse || null}
         onClick={onTouch || null}
         ref={canvasRef}
