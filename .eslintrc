@@ -11,7 +11,7 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2022,
     "ecmaFeatures": {
       "legacyDecorators": true,
       "jsx": true
@@ -19,7 +19,7 @@
   },
   "settings": {
     "react": {
-      "version": "16"
+      "version": "18"
     }
   },
   "rules": {
