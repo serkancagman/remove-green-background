@@ -52,7 +52,7 @@ export const TransparentCanvas = ({
   })
 
   return (
-    <>
+    <React.Fragment>
       <video
         autoPlay={autoPlay}
         style={{ display: originalVideo ? originalVideo : 'none' }}
@@ -69,6 +69,6 @@ export const TransparentCanvas = ({
         height={height}
         className={className || ''}
       />
-    </>
+    </React.Fragment>
   )
 }
