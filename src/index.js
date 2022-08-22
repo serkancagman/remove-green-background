@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './styles.module.css'
 
 export const TransparentCanvas = ({
-  elementRef,
   rColor,
   gColor,
   bColor,
@@ -20,11 +19,11 @@ export const TransparentCanvas = ({
   const canvasRef = React.createRef(null)
   const videoRef = React.createRef(null)
   React.useEffect(() => {
-    if (canvasRef.current && elementRef.current && elementRef) {
+    if (canvasRef.current && videoRef.current && videoRef) {
       const interval = setInterval(() => {
         const ctx = canvasRef?.current?.getContext('2d')
         ctx?.drawImage(
-          elementRef.current,
+          videoRef.current,
           0,
           0,
           canvasRef.current.width,
