@@ -1,8 +1,6 @@
-# remove-green-background
+# React Remove Green Background
 
-> Made with create-react-library
-
-[![NPM](https://img.shields.io/npm/v/remove-green-background.svg)](https://www.npmjs.com/package/remove-green-background) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -10,20 +8,32 @@
 npm install --save remove-green-background
 ```
 
+![](public/taste.gif)
+
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import { TransparentCanvas } from 'react-remove-green-background'
 
-import MyComponent from 'remove-green-background'
-import 'remove-green-background/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export const Component = () => {
+  <TransparentCanvas
+    rColor={150}
+    gColor={130}
+    autoPlay={true}
+    videoSrc='video_path.mp4'
+    loop={true}
+  />
 }
 ```
+
+### # videoSrc = The path of the video you want to use
+### # autoPlay = Auto play feature, gets true or false 
+### # rColor =  Red color 
+### # gColor =  Green color 
+### # bColor =  Blue color 
+### # originalVideo = Show original video, gets true or false
+
+
 
 ## License
 
